@@ -1,0 +1,73 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 60vh;
+}
+
+.btn {
+    color: #fff;
+    background-color: hsl(200, 100%, 50%);
+    padding: .5em 1em;
+    border: none;
+    border-radius: .3em;
+    cursor: pointer;
+    font-size: 20px;
+    position: relative;
+}
+
+.btn::after {
+    content: '';
+    color: #000;
+    font-size: 18px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(200%);
+} 
+
+.btn:hover::after {
+    animation: loading 2s linear .1s forwards;
+}
+
+@keyframes loading {
+    from {
+        content: 'Loading';
+    }
+    
+    25% {
+        content: 'Loading.';
+        transform: rotate(45deg);
+        
+    }
+    
+    50% {
+        content: 'Loading..';
+        transform: rotate(0deg);
+        
+    }
+    
+    75% {
+        content: 'Loading...';
+        transform: rotate(-45deg);
+        
+    }
+    
+    99% {
+        content: 'Loading';
+        transform: rotate(0deg);
+
+    }
+
+    to {
+        content: 'Loaded';
+        transform: rotate(0deg);
+
+    }
+}
